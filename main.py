@@ -30,3 +30,10 @@ model.add(layers.Dense(10, activation='softmax'))
 model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 
 model.fit(training_images, training_labels, batch_size = 1, epochs=10, validation_data=(testing_images, testing_labels))
+
+test_loss, test_acc = model.evaluate(testing_images, testing_labels)
+print(f"Loss: {test_loss}, Accuracy: {test_acc}")
+
+model.save('imageClassifier.model')
+
+model = models.load_model('imageClassifier.model')
