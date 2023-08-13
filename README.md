@@ -16,4 +16,4 @@ This Python script demonstrates image classification using a Convolutional Neura
 **Model Training:** Train the model on the training images and labels. Validate the model using random images.
 
 # Acknowledgements #
-This project is inspired by the TensorFlow and NeuralNine tutorials.
+This project is inspired by the TensorFlow and NeuralNine tutorials. Images courtesy of Pixabay.
