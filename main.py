@@ -8,6 +8,7 @@ training_images, testing_images = training_images / 255.0, testing_images / 255.
 
 class_names = ['airplane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
 
+'''
 for i in range(16):
     plt.subplot(4, 4, i+1)
     plt.xticks([])
@@ -35,5 +36,17 @@ test_loss, test_acc = model.evaluate(testing_images, testing_labels)
 print(f"Loss: {test_loss}, Accuracy: {test_acc}")
 
 model.save('imageClassifier.model')
+'''
 
 model = models.load_model('imageClassifier.model')
+
+img = cv.imread('airplane.jpg')
+img = cv.cvtColor(img, cv.COLOR_BGR2RGB)
+
+plt.imshow(img, cmap=plt.cm.binary)
+
+prediction = model.predict(np.array([img]) / 255.0)
+index = np.argmax(prediction)
+print(f"Prediction: {class_names[index]}")
+
+plt.show()
